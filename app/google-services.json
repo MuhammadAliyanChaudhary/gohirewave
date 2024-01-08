@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "224983945266",
+    "project_id": "gohirewavebusiness",
+    "storage_bucket": "gohirewavebusiness.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224983945266:android:68b53dc09047308c0d2c2b",
+        "android_client_info": {
+          "package_name": "com.gohirewave.jobsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWK65VkkCnEqzwM5-rDlh4-Oa7Yzu3tcI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

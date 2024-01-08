@@ -145,13 +145,13 @@
                 android:layout_marginTop="20dp"/>
 
             <TextView
-                android:id="@+id/signInLink"
+                android:id="@+id/signUpLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textColor="@color/main_color"
                 android:textStyle="bold"
-                android:text="@string/sign_in"
+                android:text="@string/signup"
                 android:layout_marginTop="20dp"/>
 
         </LinearLayout>

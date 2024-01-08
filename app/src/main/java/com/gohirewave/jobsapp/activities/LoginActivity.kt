@@ -6,7 +6,7 @@ import android.view.View
 import com.gohirewave.jobsapp.R
 import com.gohirewave.jobsapp.databinding.ActivityLoginBinding
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     private lateinit var binding : ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
             loginButtonSignIn.setOnClickListener { onButtonClick(it) }
             googleSignInButton.setOnClickListener { onButtonClick(it) }
             facebookSignInButton.setOnClickListener { onButtonClick(it) }
-            signInLink.setOnClickListener { onButtonClick(it) }
+            signUpLink.setOnClickListener { onButtonClick(it) }
             // Add more click listeners as needed
         }
     }
@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
 
             }
             R.id.forgetPasswordTextSignIn -> {
-
+                openActivity(ForgetPasswordActivity::class.java, null)
             }
             R.id.loginButtonSignIn -> {
 
@@ -46,8 +46,8 @@ class LoginActivity : AppCompatActivity() {
             R.id.googleSignInButton -> {
 
             }
-            R.id.signInLink -> {
-
+            R.id.signUpLink -> {
+                openActivity(SignUpActivity::class.java, null)
             }
         }
     }
