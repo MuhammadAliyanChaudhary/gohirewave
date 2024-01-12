@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:layout_marginTop="60dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/verify_email"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/please_verify_your_email_to_continue"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="40dp"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/check_your_email_address_linked"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="13sp"
+            />
+
+
+
+        <Button
+            android:id="@+id/verify_btn"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:text="Verify"
+            android:textSize="13sp"
+            android:textAllCaps="false"
+            android:layout_marginTop="30dp"
+
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/did_nt_recieved_code"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="40dp"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:visibility="gone"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center"/>
+
+
+        <Button
+            android:id="@+id/send_verification_link"
+            android:textColor="@color/main_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:backgroundTint="@color/light_grey"
+            android:text="Get Verification link again"
+            android:textSize="13sp"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+
+            />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="After verification click the verify button to proceed further"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/main_color"
+            android:layout_marginHorizontal="40dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/logout_btn_email_verification"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:backgroundTint="@color/grey_color"
+        android:text="Logout"
+        android:textSize="13sp"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="40dp"
+        />
+
+</LinearLayout>
