@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="bottom_nav_icon_text_active">
+        <item name="android:textSize">10dp</item>
+        <item name="fontStyle">normal</item>
+        <item name="fontFamily">@font/poppins_light</item>
+    </style>
+
+    <style name="bottom_nav_icon_text_inactive">
+        <item name="android:textSize">10dp</item>
+        <item name="fontStyle">normal</item>
+        <item name="fontFamily">@font/poppins_light</item>
+    </style>
+
+</resources>
