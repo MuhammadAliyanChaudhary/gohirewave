@@ -28,6 +28,7 @@ class SignUpActivity : BaseActivity() {
         initializeViews()
         with(binding) {
             signUpButton.setOnClickListener { onButtonClick(it) }
+            backArrowSignUp.setOnClickListener{ onButtonClick(it)}
         }
     }
 
@@ -40,6 +41,10 @@ class SignUpActivity : BaseActivity() {
             R.id.signUpButton -> {
                    validate()
             }
+            R.id.backArrowSignUp -> {
+                onBackPressed()
+            }
+
         }
     }
 
@@ -109,12 +114,11 @@ class SignUpActivity : BaseActivity() {
 
                 } else {
 
-                    Toast.makeText(this@SignUpActivity, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    showWarningToast(this@SignUpActivity,"Error: ${task.exception?.message}", Toast.LENGTH_LONG)
                 }
             }
             .addOnFailureListener { e ->
-
-                Toast.makeText(this@SignUpActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                showWarningToast(this@SignUpActivity,"Error: ${e.message}", Toast.LENGTH_LONG)
             }
 
     }
@@ -145,7 +149,7 @@ class SignUpActivity : BaseActivity() {
                 if (task.isSuccessful) {
                     sendVerificationLink()
                 } else {
-                    Toast.makeText(this@SignUpActivity, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    showWarningToast(this@SignUpActivity, "Error: ${task.exception?.message}", Toast.LENGTH_LONG)
                 }
             }
     }
@@ -156,11 +160,11 @@ class SignUpActivity : BaseActivity() {
 
             mAuth.currentUser?.sendEmailVerification()?.addOnSuccessListener {
                 Log.d(TAG, "onSuccess: email sent")
-                Toast.makeText(this@SignUpActivity, "We have sent the link to your registered email address. Please check it.", Toast.LENGTH_SHORT).show()
+                showSuccessToast(this@SignUpActivity, "We have sent the link to your registered email address. Please check it.", Toast.LENGTH_LONG)
                 openActivity(EmailVerificationActivity::class.java, null)
                 finish()
             }?.addOnFailureListener { e ->
-                Toast.makeText(this@SignUpActivity, "${e.message}", Toast.LENGTH_SHORT).show()
+                showWarningToast(this@SignUpActivity, "${e.message}", Toast.LENGTH_SHORT)
                 openActivity(EmailVerificationActivity::class.java, null)
                 finish()
             }

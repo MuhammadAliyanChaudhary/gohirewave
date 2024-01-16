@@ -3,6 +3,7 @@ package com.gohirewave.jobsapp.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.View
 import com.gohirewave.jobsapp.R
 import com.gohirewave.jobsapp.databinding.ActivityEmailVerificationBinding
 
@@ -16,10 +17,33 @@ class EmailVerificationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+        with(binding) {
+            backArrowEmailVerify.setOnClickListener { onButtonClick(it) }
+        }
+
+
+
+
+
         startTimer(60000);  // 60,000 milliseconds = 1 minute
+
+
+
+
+
     }
 
 
+
+
+
+    private fun onButtonClick(it: View?) {
+        when (it?.id) {
+            R.id.backArrowEmailVerify -> {
+                onBackPressed()
+            }
+        }
+    }
 
     private fun startTimer(durationMillis: Long) {
         countDownTimer = object : CountDownTimer(durationMillis, 1000) {

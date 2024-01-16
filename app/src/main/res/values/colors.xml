@@ -10,4 +10,6 @@
     <color name="secondary_color">#292825</color>
     <color name="grey_color">#292825</color>
     <color name="light_grey">#DDDDDD</color>
+    <color name="med_grey">#B8B5BE</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

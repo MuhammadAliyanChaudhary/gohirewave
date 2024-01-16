@@ -1,9 +1,11 @@
 package com.gohirewave.jobsapp.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.shashank.sony.fancytoastlib.FancyToast
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -29,6 +31,19 @@ open class BaseActivity : AppCompatActivity() {
         }
         startActivity(myIntent)
     }
+
+    fun showWarningToast(context: Context, msg : String, lengthToast: Int){
+        FancyToast.makeText(context, msg, lengthToast, FancyToast.WARNING,true)
+    }
+
+    fun showSuccessToast(context: Context, msg : String, lengthToast: Int){
+        FancyToast.makeText(context, msg, lengthToast, FancyToast.SUCCESS,true)
+    }
+
+    fun showInfoToast(context: Context, msg : String, lengthToast: Int){
+        FancyToast.makeText(context, msg, lengthToast, FancyToast.INFO,true)
+    }
+
 
 
 }

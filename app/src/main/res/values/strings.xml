@@ -24,4 +24,9 @@
     <string name="please_verify_your_email_to_continue">Please verify your email to continue</string>
     <string name="check_your_email_address_linked">Check your Email address linked to this account. A link has been send to your Email</string>
     <string name="did_nt_recieved_code">Not Received Code?</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_saved_jobs">Saved Jobs</string>
+    <string name="title_applied_jobs">Applied Jobs</string>
+    <string name="title_profile">Profile</string>
 </resources>
