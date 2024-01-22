@@ -54,45 +54,53 @@ class SignUpActivity : BaseActivity() {
         val firstName = binding.firstNameEditTextSignUp.text.toString().trim()
         val lastName = binding.lastNameEditTextSignUp.text.toString().trim()
         val email = binding.emailEditTextSignUp.text.toString().trim()
-        val pass = binding.passwordEditTextSignUp.text.toString()
-        val confirmPass = binding.passwordAgainEditTextSignUp.text.toString()
+        val pass = binding.passwordEditTextSignUp.text.toString().trim()
+        val confirmPass = binding.passwordAgainEditTextSignUp.text.toString().trim()
 
         when {
             firstName.isEmpty() -> {
                 binding.firstNameEditTextSignUp.error = "Enter First Name"
+                showWarningToast(this@SignUpActivity,"First Name Cannot be Empty", Toast.LENGTH_LONG)
                 binding.firstNameEditTextSignUp.requestFocus()
             }
             lastName.isEmpty() -> {
                 binding.lastNameEditTextSignUp.error = "Enter Last Name"
+                showWarningToast(this@SignUpActivity,"Last Name Cannot be Empty", Toast.LENGTH_LONG)
                 binding.lastNameEditTextSignUp.requestFocus()
             }
             email.isEmpty() -> {
                 binding.emailEditTextSignUp.error = "Enter email"
+                showWarningToast(this@SignUpActivity,"Email Cannot be Empty", Toast.LENGTH_LONG)
                 binding.emailEditTextSignUp.requestFocus()
 
             }
             pass.isEmpty() -> {
                 binding.passwordEditTextSignUp.error = "Enter password"
+                showWarningToast(this@SignUpActivity,"Password Cannot be Empty", Toast.LENGTH_LONG)
                 binding.passwordEditTextSignUp.requestFocus()
 
             }
             confirmPass.isEmpty() -> {
                 binding.passwordAgainEditTextSignUp.error = "Enter password again"
+                showWarningToast(this@SignUpActivity,"Password Cannot be Empty", Toast.LENGTH_LONG)
                 binding.passwordAgainEditTextSignUp.requestFocus()
 
             }
             pass.length < 6 -> {
                 binding.passwordEditTextSignUp.error = "Password length must be greater than 6 digits"
+                showWarningToast(this@SignUpActivity,"Password must be greater than 6 digits", Toast.LENGTH_LONG)
                 binding.passwordEditTextSignUp.requestFocus()
 
             }
             confirmPass.length < 6 -> {
                 binding.passwordAgainEditTextSignUp.error = "Password do not match"
+                showWarningToast(this@SignUpActivity,"Password does not match in both place", Toast.LENGTH_LONG)
                 binding.passwordAgainEditTextSignUp.requestFocus()
             }
 
             pass != confirmPass -> {
                 binding.passwordAgainEditTextSignUp.error = "Password do not match"
+                showWarningToast(this@SignUpActivity,"Password does not match in both place", Toast.LENGTH_LONG)
                 binding.passwordAgainEditTextSignUp.requestFocus()
 
             }
@@ -114,11 +122,11 @@ class SignUpActivity : BaseActivity() {
 
                 } else {
 
-                    showWarningToast(this@SignUpActivity,"Error: ${task.exception?.message}", Toast.LENGTH_LONG)
+                    showWarningToast(this@SignUpActivity,"Error: ${task.exception?.message}", Toast.LENGTH_SHORT)
                 }
             }
             .addOnFailureListener { e ->
-                showWarningToast(this@SignUpActivity,"Error: ${e.message}", Toast.LENGTH_LONG)
+                showWarningToast(this@SignUpActivity,"Error: ${e.message}", Toast.LENGTH_SHORT)
             }
 
     }
@@ -139,6 +147,7 @@ class SignUpActivity : BaseActivity() {
 
         val prefsEditor = getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit()
         prefsEditor.putString("id", uid)
+        prefsEditor.putBoolean("loggedIn",true)
         prefsEditor.apply()
 
         val databaseReference: DatabaseReference =
@@ -147,29 +156,21 @@ class SignUpActivity : BaseActivity() {
         databaseReference.child(uid).setValue(userMap)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    sendVerificationLink()
+                    if (!mAuth.currentUser?.isEmailVerified!!) {
+                        openActivity(EmailVerificationActivity::class.java, null)
+                    }else{
+                        openActivity(BottomNavigationActivity::class.java, null)
+                    }
+
+
                 } else {
-                    showWarningToast(this@SignUpActivity, "Error: ${task.exception?.message}", Toast.LENGTH_LONG)
+                    showWarningToast(this@SignUpActivity, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT)
                 }
             }
     }
 
 
-    private fun sendVerificationLink(){
-        if (!mAuth.currentUser?.isEmailVerified!!) {
 
-            mAuth.currentUser?.sendEmailVerification()?.addOnSuccessListener {
-                Log.d(TAG, "onSuccess: email sent")
-                showSuccessToast(this@SignUpActivity, "We have sent the link to your registered email address. Please check it.", Toast.LENGTH_LONG)
-                openActivity(EmailVerificationActivity::class.java, null)
-                finish()
-            }?.addOnFailureListener { e ->
-                showWarningToast(this@SignUpActivity, "${e.message}", Toast.LENGTH_SHORT)
-                openActivity(EmailVerificationActivity::class.java, null)
-                finish()
-            }
-        }
-    }
 
 
 

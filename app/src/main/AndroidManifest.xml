@@ -19,11 +19,6 @@
             android:exported="true"
             android:label="@string/title_activity_bottom_navigation" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.EmailVerificationActivity"
@@ -42,10 +37,16 @@
             android:exported="true"
             android:theme="@style/SplashTheme">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activities.MainActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
     </application>
 
 </manifest>

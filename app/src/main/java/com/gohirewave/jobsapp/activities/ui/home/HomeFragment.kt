@@ -1,42 +1,55 @@
 package com.gohirewave.jobsapp.activities.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import com.gohirewave.jobsapp.R
+import com.gohirewave.jobsapp.activities.LoginActivity
 import com.gohirewave.jobsapp.databinding.FragmentHomeBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.shashank.sony.fancytoastlib.FancyToast
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private var binding: FragmentHomeBinding? = null
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val root: View = binding!!.root
+
+        mAuth = FirebaseAuth.getInstance()
+
+
+        binding!!.logoutBtnHome.setOnClickListener {
+            logoutUser()
         }
+
+
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
+    }
+
+    private fun logoutUser() {
+        mAuth.signOut()
+        FancyToast.makeText(requireContext(), "Logout Successful", FancyToast.LENGTH_SHORT, R.drawable.ic_logo, false )
+
+        val myIntent = Intent(requireContext(), LoginActivity::class.java)
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(myIntent)
+
     }
 }

@@ -1,6 +1,7 @@
 package com.gohirewave.jobsapp.activities
 
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -9,16 +10,20 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.gohirewave.jobsapp.R
 import com.gohirewave.jobsapp.databinding.ActivityBottomNavigationBinding
+import com.google.firebase.auth.FirebaseAuth
 
-class BottomNavigationActivity : AppCompatActivity() {
+class BottomNavigationActivity : BaseActivity() {
 
     private lateinit var binding: ActivityBottomNavigationBinding
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityBottomNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        initializeViews()
 
         val navView: BottomNavigationView = binding.navView
 
@@ -32,5 +37,23 @@ class BottomNavigationActivity : AppCompatActivity() {
         )
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+
+
+
     }
+
+    private fun initializeViews() {
+        mAuth = FirebaseAuth.getInstance()
+    }
+    private fun logoutUser() {
+        mAuth.signOut()
+        showSuccessToast(this@BottomNavigationActivity, "Logout Successful", Toast.LENGTH_SHORT)
+        openActivity(LoginActivity::class.java, null)
+        finish()
+    }
+
+
 }
+

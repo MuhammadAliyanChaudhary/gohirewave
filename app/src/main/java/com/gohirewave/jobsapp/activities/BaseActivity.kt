@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.gohirewave.jobsapp.R
 import com.shashank.sony.fancytoastlib.FancyToast
 
 open class BaseActivity : AppCompatActivity() {
@@ -33,15 +34,15 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun showWarningToast(context: Context, msg : String, lengthToast: Int){
-        FancyToast.makeText(context, msg, lengthToast, FancyToast.WARNING,true)
+        FancyToast.makeText(context, msg, lengthToast, FancyToast.WARNING,R.drawable.ic_logo, false).show()
     }
 
     fun showSuccessToast(context: Context, msg : String, lengthToast: Int){
-        FancyToast.makeText(context, msg, lengthToast, FancyToast.SUCCESS,true)
+        FancyToast.makeText(context, msg, lengthToast, FancyToast.SUCCESS,R.drawable.ic_logo, false).show()
     }
 
     fun showInfoToast(context: Context, msg : String, lengthToast: Int){
-        FancyToast.makeText(context, msg, lengthToast, FancyToast.INFO,true)
+        FancyToast.makeText(context, msg, lengthToast, FancyToast.INFO, R.drawable.ic_logo, false).show()
     }
 
 
