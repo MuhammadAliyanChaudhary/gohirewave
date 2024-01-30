@@ -30,9 +30,7 @@ class HomeFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
 
 
-        binding!!.logoutBtnHome.setOnClickListener {
-            logoutUser()
-        }
+
 
 
         return binding!!.root
