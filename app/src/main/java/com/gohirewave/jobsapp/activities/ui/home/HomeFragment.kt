@@ -14,7 +14,7 @@ import com.shashank.sony.fancytoastlib.FancyToast
 
 class HomeFragment : Fragment() {
 
-    private var binding: FragmentHomeBinding? = null
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var mAuth: FirebaseAuth
 
     override fun onCreateView(
@@ -26,6 +26,8 @@ class HomeFragment : Fragment() {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        binding.includeToolbar.titleTextToolbarMain.text = getString(R.string.title_home)
+
 
         mAuth = FirebaseAuth.getInstance()
 
@@ -33,21 +35,14 @@ class HomeFragment : Fragment() {
 
 
 
-        return binding!!.root
+
+        return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding = null
-    }
-
-    private fun logoutUser() {
-        mAuth.signOut()
-        FancyToast.makeText(requireContext(), "Logout Successful", FancyToast.LENGTH_SHORT, R.drawable.ic_logo, false )
-
-        val myIntent = Intent(requireContext(), LoginActivity::class.java)
-        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-        startActivity(myIntent)
 
     }
+
+
 }
