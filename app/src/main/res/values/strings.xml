@@ -36,4 +36,6 @@
     <string name="filter_icon">Filter Icon</string>
     <string name="popular_companies">Popular Companies</string>
     <string name="recommended_jobs">Recommended Jobs</string>
+    <string name="post_job">Post Job</string>
+    <string name="find_job">Find Job</string>
 </resources>

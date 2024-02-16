@@ -43,7 +43,8 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun sendUserToActivities() {
-        val currentUser = mAuth.currentUser
+        openActivity(ChooseActivity::class.java,null)
+        /*val currentUser = mAuth.currentUser
         if (currentUser != null) {
             if(mAuth.currentUser?.isEmailVerified!!){
                 openActivity(BottomNavigationActivity::class.java, null)
@@ -56,7 +57,7 @@ class SplashActivity : BaseActivity() {
         } else {
             openActivity(LoginActivity::class.java, null)
             finish()
-        }
+        }*/
     }
 
 
