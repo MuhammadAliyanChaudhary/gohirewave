@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        binding.includeToolbar.titleTextToolbarMain.text = getString(R.string.title_home)
+        binding.homeToolbar.titleTextToolbarMain.text = getString(R.string.title_home)
 
 
         mAuth = FirebaseAuth.getInstance()

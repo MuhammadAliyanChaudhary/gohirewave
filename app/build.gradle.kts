@@ -63,4 +63,8 @@ dependencies {
 
     // fancy toast
     implementation("io.github.shashank02051997:FancyToast:2.0.2")
+
+
+    // Circular image view
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }

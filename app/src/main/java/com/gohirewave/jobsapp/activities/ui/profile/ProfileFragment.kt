@@ -27,6 +27,8 @@ class ProfileFragment : Fragment() {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         mAuth = FirebaseAuth.getInstance()
 
+        binding.profileToolbar.titleTextToolbarMain.text = getString(R.string.title_profile)
+
         binding.logoutBtn.setOnClickListener{
             logoutUser()
         }

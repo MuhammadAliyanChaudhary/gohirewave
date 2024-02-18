@@ -15,6 +15,9 @@
         android:theme="@style/Theme.GoHireWave"
         tools:targetApi="31">
         <activity
+            android:name=".activities.CompanyProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PostJobActivity"
             android:exported="false" />
         <activity
