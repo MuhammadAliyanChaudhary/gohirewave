@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_jobs_posted"
+        android:title="Jobs Posted"
+        android:icon="@drawable/ic_applied_jobs" />
+
+    <item
+        android:id="@+id/navigation_company_profile"
+        android:title="Company Profile"
+        android:icon="@drawable/ic_profile" />
+</menu>

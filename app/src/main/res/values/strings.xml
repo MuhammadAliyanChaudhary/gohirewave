@@ -43,4 +43,7 @@
     <string name="percentage_value">0%</string>
     <string name="skills_proficiencies">Skills / Proficiencies</string>
     <string name="languages">Languages</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
